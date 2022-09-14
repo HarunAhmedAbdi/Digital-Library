@@ -23,19 +23,19 @@ public class Books {
     private int totalPages;
 
     @Column
-    private Date published_date;
+    private Date publishedDate;
 
     // Default constructor
     public Books() {
         super();
     }
 
-    public Books(Long id, String title, int totalPages, LocalDate dob) {
+    public Books(Long id, String title, int totalPages, Date publishedDate) {
         super();
         this.bookId = id;
         this.title = title;
         this.totalPages = totalPages;
-        this.totalPages = totalPages;
+        this.publishedDate = publishedDate;
     }
 
     
@@ -64,11 +64,11 @@ public class Books {
     }
 
     public Date getPublished_date() {
-        return published_date;
+        return publishedDate;
     }
 
-    public void setPublished_date(Date published_date) {
-        this.published_date = published_date;
+    public void setPublished_date(Date publishedDate) {
+        this.publishedDate = publishedDate;
     }
 
 

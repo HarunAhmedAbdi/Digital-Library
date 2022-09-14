@@ -29,7 +29,7 @@ public class BooksController {
 
     // Create
     @PostMapping("/create")
-    public Books addBooks(@RequestBody Books newBook) {
+    public Books addBook(@RequestBody Books newBook) {
         return this.service.addBook(newBook);
     }
 
@@ -41,13 +41,13 @@ public class BooksController {
 
     // Update
     @PutMapping("/update")
-    public Books updatebook(@PathParam("id") int id, @RequestBody Books book) {
-        return this.service.updateBooks(id, book);
+    public Books updatebook(@PathParam("id") Long id, @RequestBody Books book) {
+        return this.service.updateBook(id, book);
     }
 
     @DeleteMapping("/delete/{id}")
-    public Books deletbook(@PathVariable int id) {
-        return this.service.deleteBooks(id);
+    public boolean deletbook(@PathVariable Long id) {
+        return this.service.deleteBook(id);
     }
 
 
