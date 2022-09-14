@@ -1,5 +1,6 @@
 package com.project.books;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -13,60 +14,62 @@ public class Books {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long bookId;
 
     @Column(unique = true, nullable = false)
-    private int accountNumber;
+    private String title;
 
     @Column
-    private String firstName;
+    private int totalPages;
 
     @Column
-    private String lastName;
-
+    private Date published_date;
 
     // Default constructor
     public Books() {
         super();
     }
 
-    public Books(Long id, int accountNumber, String password, String firstName, String lastName, LocalDate dob) {
+    public Books(Long id, String title, int totalPages, LocalDate dob) {
         super();
-        this.id = id;
-        this.accountNumber = accountNumber;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.bookId = id;
+        this.title = title;
+        this.totalPages = totalPages;
+        this.totalPages = totalPages;
     }
 
-    public long getId() {
-        return id;
+    
+    public Long getBookId() {
+        return bookId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
     }
 
-    public int getaccountNumber() {
-        return accountNumber;
+    public String getTitle() {
+        return title;
     }
 
-    public void setaccountNumber(int accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public int getTotalPages() {
+        return totalPages;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setTotalPages(int totalPages) {
+        this.totalPages = totalPages;
     }
 
-    public String getLastName() {
-        return lastName;
+    public Date getPublished_date() {
+        return published_date;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setPublished_date(Date published_date) {
+        this.published_date = published_date;
     }
+
+
 }
