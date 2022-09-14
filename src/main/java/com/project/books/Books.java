@@ -16,7 +16,7 @@ public class Books {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String accountNumber;
+    private int accountNumber;
 
     @Column
     private String firstName;
@@ -30,8 +30,9 @@ public class Books {
         super();
     }
 
-    public Books(String accountNumber, String password, String firstName, String lastName, LocalDate dob) {
+    public Books(Long id, int accountNumber, String password, String firstName, String lastName, LocalDate dob) {
         super();
+        this.id = id;
         this.accountNumber = accountNumber;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,11 +46,11 @@ public class Books {
         this.id = id;
     }
 
-    public String getaccountNumber() {
+    public int getaccountNumber() {
         return accountNumber;
     }
 
-    public void setaccountNumber(String accountNumber) {
+    public void setaccountNumber(int accountNumber) {
         this.accountNumber = accountNumber;
     }
 
