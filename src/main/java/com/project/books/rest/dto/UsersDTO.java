@@ -5,7 +5,7 @@ import com.project.books.persistance.domain.Users;
 public class UsersDTO {
 
 
-    private Long id;
+    private Long userId;
 
 
     private String username;
@@ -15,16 +15,16 @@ public class UsersDTO {
         super();
     }
     public UsersDTO(Users user) {
-        this.id = user.getUserId();
+        this.userId = user.getUserId();
         this.username = user.getUsername();
     }
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long id) {
+        this.userId = id;
     }
 
     public String getUsername() {
