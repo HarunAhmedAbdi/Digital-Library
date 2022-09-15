@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.books.persistance.domain.Users;
+import com.project.books.rest.dto.UsersDTO;
 import com.project.books.service.UsersService;
 
 @RestController
@@ -32,19 +33,19 @@ public class UsersController {
 
     // Create
     @PostMapping("/createUser")
-    public Users addUser(@RequestBody Users user) {
+    public UsersDTO addUser(@RequestBody Users user) {
         return this.service.addUser(user);
     }
 
     // Read
     @GetMapping("/getAllUsers")
-    public List<Users> getAllUsers() {
+    public List<UsersDTO> getAllUsers() {
         return this.service.getAllUsers();
     }
 
     // Update
     @PutMapping("/updateUser")
-    public Users updateUser(@PathParam("id") Long id, @RequestBody Users user) {
+    public UsersDTO updateUser(@PathParam("id") Long id, @RequestBody Users user) {
         return this.service.updateUser(id, user);
     }
 
