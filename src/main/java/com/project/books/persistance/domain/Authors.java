@@ -1,10 +1,17 @@
 package com.project.books.persistance.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
 
 @Entity
 public class Authors {
@@ -15,6 +22,10 @@ public class Authors {
     @Column
     private String fullName;
 
+
+    @ManyToMany(mappedBy = "authors", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Set<Books> books = new HashSet<>();
+    
     // Default constructor
     public Authors() {
         super();
@@ -41,5 +52,10 @@ public class Authors {
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
+
+    public Set<Books> getBooks() {
+        return books;
+    }
+
 
 }

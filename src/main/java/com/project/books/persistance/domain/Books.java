@@ -1,13 +1,19 @@
 package com.project.books.persistance.domain;
 
-
-
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Books {
@@ -25,6 +31,14 @@ public class Books {
     @Column
     private Date publishedDate;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name = "book_authors",
+            joinColumns = {@JoinColumn(name = "books_id")},
+            inverseJoinColumns = {@JoinColumn(name = "authors_id")}
+    )
+    private Set<Authors> authors = new HashSet<>();
+
     // Default constructor
     public Books() {
         super();
@@ -38,7 +52,6 @@ public class Books {
         this.publishedDate = publishedDate;
     }
 
-    
     public Long getBookId() {
         return bookId;
     }
@@ -71,5 +84,8 @@ public class Books {
         this.publishedDate = publishedDate;
     }
 
+    public Set<Authors> getAuthors() {
+        return authors;
+    }
 
 }

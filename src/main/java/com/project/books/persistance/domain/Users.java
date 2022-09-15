@@ -12,10 +12,10 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    @Column
+    @Column(nullable = false, length = 15)
     private String username;
 
-    @Column
+    @Column(nullable = false, length = 64)
     private String password;
     
     // Default constructor
