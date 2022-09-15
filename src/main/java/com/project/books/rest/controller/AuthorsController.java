@@ -1,4 +1,4 @@
-package com.project.books;
+package com.project.books.rest.controller;
 
 import java.util.List;
 
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.project.books.persistance.domain.Authors;
+import com.project.books.service.AuthorsService;
 
 @RestController
 public class AuthorsController {

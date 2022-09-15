@@ -1,4 +1,4 @@
-package com.project.books;
+package com.project.books.rest.controller;
 
 import java.util.List;
 
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.project.books.persistance.domain.Books;
+import com.project.books.service.BooksService;
 
 @RestController
 public class BooksController {
@@ -40,7 +43,7 @@ public class BooksController {
     }
 
     // Update
-    @PutMapping("/updateBooks")
+    @PutMapping("/updateBook")
     public Books updatebook(@PathParam("id") Long id, @RequestBody Books book) {
         return this.service.updateBook(id, book);
     }
