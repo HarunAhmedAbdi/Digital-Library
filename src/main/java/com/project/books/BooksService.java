@@ -2,7 +2,6 @@ package com.project.books;
 
 
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
@@ -17,7 +16,6 @@ public class BooksService {
         this.repo = repo;
     }
     
-    private List<Books> book = new ArrayList<>();
 
     public Books addBook(Books book) {
         // // Add new Books

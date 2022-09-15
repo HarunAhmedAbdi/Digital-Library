@@ -28,7 +28,7 @@ public class BooksController {
         }
 
     // Create
-    @PostMapping("/create")
+    @PostMapping("/createBook")
     public Books addBook(@RequestBody Books newBook) {
         return this.service.addBook(newBook);
     }
@@ -40,12 +40,12 @@ public class BooksController {
     }
 
     // Update
-    @PutMapping("/update")
+    @PutMapping("/updateBooks")
     public Books updatebook(@PathParam("id") Long id, @RequestBody Books book) {
         return this.service.updateBook(id, book);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteBook/{id}")
     public boolean deletbook(@PathVariable Long id) {
         return this.service.deleteBook(id);
     }
