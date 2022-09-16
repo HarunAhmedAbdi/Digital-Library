@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 
+import com.project.books.persistance.domain.Authors;
 import com.project.books.persistance.domain.Books;
+import com.project.books.persistance.repo.AuthorsRepo;
 import com.project.books.persistance.repo.BooksRepo;
 
 @Service
@@ -14,9 +16,12 @@ public class BooksService {
 
     private BooksRepo repo;
 
-    public BooksService(BooksRepo repo) {
+    private AuthorsRepo authorRepo;
+
+    public BooksService(BooksRepo repo, AuthorsRepo authorRepo) {
         super();
         this.repo = repo;
+        this.authorRepo = authorRepo;
     }
     
 
@@ -60,5 +65,16 @@ public class BooksService {
         this.repo.deleteById(id);
         boolean exists = this.repo.existsById(id);
         return !exists;
+    }
+
+    
+    public Books addAuthorToBook(Long bookId, Long authorId) {
+        
+        Authors author = this.authorRepo.findById(bookId).get();
+        Books book = this.repo.findById(bookId).get();
+        
+        book.addedAuthors(author);
+
+        return this.repo.save(book);
     }
 }

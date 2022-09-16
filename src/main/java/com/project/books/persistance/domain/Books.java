@@ -29,7 +29,7 @@ public class Books {
     private int totalPages;
 
     @Column
-    private Date publishedDate;
+    private String publishedDate;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(
@@ -44,7 +44,7 @@ public class Books {
         super();
     }
 
-    public Books(Long id, String title, int totalPages, Date publishedDate) {
+    public Books(Long id, String title, int totalPages, String publishedDate) {
         super();
         this.bookId = id;
         this.title = title;
@@ -76,16 +76,20 @@ public class Books {
         this.totalPages = totalPages;
     }
 
-    public Date getPublished_date() {
+    public String getPublished_date() {
         return publishedDate;
     }
 
-    public void setPublished_date(Date publishedDate) {
+    public void setPublished_date(String publishedDate) {
         this.publishedDate = publishedDate;
     }
 
     public Set<Authors> getAuthors() {
         return authors;
+    }
+
+    public void addedAuthors(Authors author) {
+        authors.add(author);
     }
 
 }

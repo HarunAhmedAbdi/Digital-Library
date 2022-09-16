@@ -2,6 +2,7 @@ package com.project.books.rest.controller;
 
 import java.util.List;
 
+import javax.security.auth.Subject;
 import javax.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,6 +52,11 @@ public class BooksController {
     @DeleteMapping("/deleteBook/{id}")
     public boolean deletbook(@PathVariable Long id) {
         return this.service.deleteBook(id);
+    }
+
+    @PutMapping("/books/{bookId}/authors/{authorId}")
+    public Books addAuthorToBook(@PathVariable Long bookId, Long authorId){
+        return this.service.addAuthorToBook(bookId, authorId);
     }
 
 

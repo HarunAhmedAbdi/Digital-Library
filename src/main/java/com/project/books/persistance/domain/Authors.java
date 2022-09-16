@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Authors {
@@ -22,7 +24,7 @@ public class Authors {
     @Column
     private String fullName;
 
-
+    @JsonIgnore
     @ManyToMany(mappedBy = "authors", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<Books> books = new HashSet<>();
     
