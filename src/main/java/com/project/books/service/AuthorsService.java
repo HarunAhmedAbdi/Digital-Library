@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 
+import com.project.books.exception.AuthorNotFoundException;
 import com.project.books.persistance.domain.Authors;
 import com.project.books.persistance.repo.AuthorsRepo;
 
@@ -43,5 +44,10 @@ public class AuthorsService {
         this.repo.deleteById(id);
         boolean exists = this.repo.existsById(id);
         return !exists;
+    }
+
+    public Authors readById(Long bookId) {
+        Authors found = this.repo.findById(bookId).orElseThrow(AuthorNotFoundException::new);
+        return this.repo.save(found);
     }
 }

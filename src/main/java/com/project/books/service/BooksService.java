@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 
+import com.project.books.exception.BookNotFoundException;
 import com.project.books.persistance.domain.Authors;
 import com.project.books.persistance.domain.Books;
 import com.project.books.persistance.repo.AuthorsRepo;
@@ -76,5 +77,10 @@ public class BooksService {
         book.addedAuthors(author);
 
         return this.repo.save(book);
+    }
+
+    public Books readById(Long bookId) {
+        Books found = this.repo.findById(bookId).orElseThrow(BookNotFoundException::new);
+        return this.repo.save(found);
     }
 }
