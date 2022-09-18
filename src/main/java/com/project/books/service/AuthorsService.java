@@ -1,7 +1,5 @@
 package com.project.books.service;
 
-
-
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
@@ -19,7 +17,6 @@ public class AuthorsService {
         super();
         this.repo = repo;
     }
-    
 
     public Authors addAuthor(Authors author) {
         return this.repo.save(author);
@@ -50,4 +47,9 @@ public class AuthorsService {
         Authors found = this.repo.findById(bookId).orElseThrow(AuthorNotFoundException::new);
         return this.repo.save(found);
     }
+
+    public Optional<Authors> findById(Long bookId) {
+        return this.repo.findById(bookId);
+    }
+
 }

@@ -1,7 +1,5 @@
 package com.project.books.service;
 
-
-
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
@@ -24,7 +22,6 @@ public class BooksService {
         this.repo = repo;
         this.authorRepo = authorRepo;
     }
-    
 
     public Books addBook(Books book) {
         // // Add new Books
@@ -41,12 +38,12 @@ public class BooksService {
     }
 
     // public Books updateBooks(int id, Books newBook) {
-    //     // // Remove existing Person with matching 'id'
-    //     // this.book.remove(id);
-    //     // // Add new Person in its place
-    //     // this.book.add(id, Books);
-    //     // // Return updated Person from List
-    //     // return this.book.get(id);
+    // // // Remove existing Person with matching 'id'
+    // // this.book.remove(id);
+    // // // Add new Person in its place
+    // // this.book.add(id, Books);
+    // // // Return updated Person from List
+    // // return this.book.get(id);
     // }
 
     public Books updateBook(Long id, Books newBook) {
@@ -68,12 +65,11 @@ public class BooksService {
         return !exists;
     }
 
-    
     public Books addAuthorToBook(Long bookId, Long authorId) {
-        
+
         Authors author = this.authorRepo.findById(bookId).get();
         Books book = this.repo.findById(bookId).get();
-        
+
         book.addedAuthors(author);
 
         return this.repo.save(book);
@@ -82,5 +78,9 @@ public class BooksService {
     public Books readById(Long bookId) {
         Books found = this.repo.findById(bookId).orElseThrow(BookNotFoundException::new);
         return this.repo.save(found);
+    }
+
+    public Optional<Books> findById(Long bookId) {
+        return this.repo.findById(bookId);
     }
 }
