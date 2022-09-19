@@ -1,0 +1,2 @@
+DROP TABLE person IF EXISTS;
+CREATE TABLE IF NOT EXISTS books (book_id INT PRIMARY KEY AUTO_INCREMENT, published_date VARCHAR(50), title VARCHAR(50), total_pages INT);
