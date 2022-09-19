@@ -1,1 +1,0 @@
-`INSERT INTO `books` (`published_date`, `title`, `total_pages`) VALUES ('1990-05-10', 'Good Omens', 288 ), ('2011-04-05', 'Heads You Lose', 320), ('1984-11-08', 'The Talisman', 656);
