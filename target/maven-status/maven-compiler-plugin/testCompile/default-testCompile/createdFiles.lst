@@ -1,0 +1,5 @@
+com\project\books\rest\controller\BooksControllerIntegrationTest.class
+com\project\books\service\AuthorsServiceUnitTest.class
+com\project\books\rest\controller\AuthorsControllerIntegrationTest.class
+com\project\books\service\BooksServiceUnitTest.class
+com\project\books\BooksApplicationTests.class
