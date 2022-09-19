@@ -1,6 +1,5 @@
 package com.project.books.persistance.domain;
 
-import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -44,12 +43,13 @@ public class Books {
         super();
     }
 
-    public Books(Long id, String title, int totalPages, String publishedDate) {
+    public Books(Long id, String title, int totalPages,Set<Authors> authors, String publishedDate) {
         super();
         this.bookId = id;
         this.title = title;
         this.totalPages = totalPages;
         this.publishedDate = publishedDate;
+        this.authors = authors;
     }
 
     public Long getBookId() {
